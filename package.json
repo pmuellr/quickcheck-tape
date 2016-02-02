@@ -14,7 +14,7 @@
     "quickcheck-tape" : "lib/cli.js"
   },
   "scripts": {
-    "utest": "nsolid test/index.js | tap-spec",
+    "utest": "nsolid test/all.js | tap-spec",
     "test": "npm run utest && standard",
     "watch": "nodemon --exec 'npm test' --ext js,json"
   },
