@@ -1,0 +1,35 @@
+{
+  "name": "quickcheck-tape",
+  "version": "0.0.1",
+  "description": "QuickCheck for Node.js, for tape",
+  "main": "lib/quickcheck-tape.js",
+  "license": "MIT",
+  "author": "Patrick Mueller",
+  "keywords": [
+    "QuickCheck",
+    "tape",
+    "test"
+  ],
+  "bin": {
+    "quickcheck-tape" : "lib/cli.js"
+  },
+  "scripts": {
+    "utest": "nsolid test/index.js | tap-spec",
+    "test": "npm run utest && standard",
+    "watch": "nodemon --exec 'npm test' --ext js,json"
+  },
+  "devDependencies": {
+    "nodemon": "~1.8.1",
+    "tape": "~4.4.0",
+    "tap-spec": "~4.1.1",
+    "standard": "~5.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmuellr/quickcheck-tape.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pmuellr/quickcheck-tape/issues"
+  },
+  "homepage": "https://github.com/pmuellr/quickcheck-tape"
+}
