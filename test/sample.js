@@ -1,21 +1,31 @@
 'use strict'
 
+const assert = require('assert')
+
 const _util = require('./_util')
 
 const qct = _util.qct
 
-// don't run tests yet
-const runTest = t => null
-// const runTest = _util.getTestRunner(__filename)
+class TestRevRev {
+  property (x) {
+    const revrev = x.reverse().reverse()
+    assert.deepEqual(revrev, x)
+  }
 
-runTest(function foo (t) {
-  const test = qct.createTest()
-  test.fn(foo, qct.gen.Int)
-  test.qualify(function (parm) { return true })
-  test.verify(function (parm) { return true })
+  types () { return [ [Number] ] }
+}
 
-  const results = test.run()
+class TestRevRev2 {
+  property (x, y) {
+    const revrev1 = x.reverse().concat(y.reverse())
+    const revrev2 = x.concat(y).reverse()
+    assert.deepEqual(revrev1, revrev2)
+  }
 
-  t.notEqual(results, true, 'foo passes')
-  t.end()
-})
+  types () { return [ [Number], [Number] ] }
+
+  iterations () { return 10 }
+}
+
+qct.test(TestRevRev)
+qct.test(TestRevRev2)

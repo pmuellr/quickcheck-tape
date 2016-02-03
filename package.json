@@ -18,9 +18,12 @@
     "test": "npm run utest && standard",
     "watch": "nodemon --exec 'npm test' --ext js,json"
   },
+  "dependencies": {
+    "d3": "~3.5.14",
+    "tape": "~4.4.0"
+  },
   "devDependencies": {
     "nodemon": "~1.8.1",
-    "tape": "~4.4.0",
     "tap-spec": "~4.1.1",
     "standard": "~5.4.1"
   },
